@@ -1,29 +1,17 @@
 # Festive_Expenditure_Analysis
 Data analysis project in RStudio examining patterns of festive expenditure across religions in India. Includes data cleaning, aggregation, and visualization using ggplot2 and dplyr.
 
+## 📊 Key Steps
+- Cleaned and summarized data of 100 households.
+- Grouped by religion to compute average expenditure.
+- Visualized results with a bar chart using `ggplot2`.
 
-# Rcode
-library(dplyr)
-library(ggplot2)
-festive <- "festive_expenditure_100_csv"
-festive <- read.csv("festive_expenditure_100_csv", header = TRUE)
+## 🧰 Tools Used
+- R, RStudio  
+- dplyr, ggplot2  
+- CSV dataset of festive expenditure
 
+## 📈 Output
 
-# Summarise average expenditure by religion (adjust column name if needed)
-avg_religion <- festive_expenditure_100_csv %>%
-  group_by(Religion) %>%
-  summarise(Average_Expenditure = mean(`Expenditure (INR)`, na.rm = TRUE))
+<img width="1366" height="705" alt="image" src="https://github.com/user-attachments/assets/c14fdf66-8ed4-4b40-ab20-0d77b0d936f3" />
 
-# Plot bar chart
-ggplot(avg_religion, aes(x = Religion, y = Average_Expenditure, fill = Religion)) +
-  geom_col() +
-  theme_minimal() +
-  labs(
-    title = "Average Festive Expenditure by Religion",
-    x = "Religion",
-    y = "Average Expenditure (INR)"
-  ) +
-  theme(
-    plot.title = element_text(hjust = 0.5, face = "bold"),
-    axis.text.x = element_text(angle = 45, hjust = 1)
-  )
